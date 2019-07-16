@@ -64,6 +64,7 @@
 }
 
 .timer {
+  display: flex;
   font-family: "Ozone";
   font-size: 9rem;
   padding: 2rem;
@@ -107,10 +108,20 @@
 }
 
 .buttons {
-  width: 50%;
-  margin: 0 auto;
+  /* width: 50%; */
+  /* margin: 0 auto; */
   display: flex;
-  justify-content: space-around;
+  justify-items: center;
+  align-items: center;
+}
+
+.homeButtons {
+  display: flex;
+  flex-direction: column;
+}
+.awayButtons {
+  display: flex;
+  flex-direction: column;
 }
 
 .homeButtons__touchdown,
@@ -119,4 +130,25 @@
 .awayButtons__fieldGoal {
   margin: 1rem;
   border-radius: 4px;
+}
+
+.start {
+  width: 140px;
+  height: 50px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+.wrap {
+  text-align: center;
+}
+
+.timer div {
+  width: 53px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
