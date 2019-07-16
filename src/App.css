@@ -108,10 +108,20 @@
 }
 
 .buttons {
-  width: 50%;
-  margin: 0 auto;
+  /* width: 50%; */
+  /* margin: 0 auto; */
   display: flex;
-  justify-content: space-around;
+  justify-items: center;
+  align-items: center;
+}
+
+.homeButtons {
+  display: flex;
+  flex-direction: column;
+}
+.awayButtons {
+  display: flex;
+  flex-direction: column;
 }
 
 .homeButtons__touchdown,
@@ -135,4 +145,10 @@
 
 .timer div {
   width: 53px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

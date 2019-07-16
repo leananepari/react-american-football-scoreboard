@@ -1,46 +1,37 @@
-const timer = (digOne, digTwo, digThree, digFour) => {
-    let second = 1;
-    let ms = 1;
-  
-    let msH = 1;
-    let msT = 1;
+const timer = (min, sec, hold1, hold2) => {
+    let seconds = 60;
+    let minutes = 15;
+    
+    min[1](min[0] = minutes);
+    sec[1](sec[0] = seconds);
+    hold1[1](hold1[0] = '');
+    hold2[1](hold2[0] = '');
   
     function loop() {
       setTimeout(function() {
-        if (ms < 99 ) {
-          if (msT < 60) {
-            msT++;
-            ms++;
+        if (minutes > 0) {
+          if (seconds > 0) {
+            seconds --;
+            sec[1](sec[0] = seconds.toString().padStart(2, '0'));
             loop();
-          } else if (msT === 60 && msH < 10) {
-            msT = 1;
-            msH ++;
-            ms++;
+          } else if (seconds === 0) {
+            seconds = 60;
+            minutes --;
+            min[1](min[0] = minutes.toString().padStart(2, '0'));
+            sec[1](sec[0] = seconds.toString().padStart(2, '0'));
             loop();
-          } else if (msH === 10) {
-            msH = 0;
-            msT = 0;
-            ms++;
-            loop();
-          }
+          } 
   
-        } else if (ms === 99 && second < 10) {
-            digFour[1](digFour[0] + second)
-            second++;
-            ms = 1;
-            msH = 1;
-            msT = 1;
-            loop();
+        } else if (minutes === 0) {
+          seconds = 0;
+          minutes = 0;
+          min[1](min[0] = minutes.toString().padStart(2, '0'));
+          sec[1](sec[0] = seconds.toString().padStart(2, '0'));
   
-        } else if (second === 10) {
-            digFour[1](digFour[0] = 0)
-            digThree[1](digThree[0] = 1)
-        }
-      }, 10)
+        } 
+      }, 1000)
     }
     loop();
-  
-
 }
 
 export default timer;
